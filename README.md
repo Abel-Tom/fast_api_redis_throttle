@@ -11,13 +11,15 @@ POST /process_data/{product_id}
 
 Run the server
 pip install -r requirements.txt
-uvicorn server:app --reload
+uvicorn main:app --reload
 Redis must running on port 6379
 
 Test race condition protection
+cd tests
 python test_increment_views.py
 
-Test all endpoints
+Test all endpoints and throttling
+cd tests
 pytest test_all_endpoints.py -s
 
 
